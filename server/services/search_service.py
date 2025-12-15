@@ -9,17 +9,17 @@ tavily_client = TavilyClient(api_key=settings.TAVILY_API_KEY)
 
 class SearchService:
     def web_search(self, query: str):
-        result = []
-        response = tavily_client.search(query,  max_results=5)
+        results = []
+        response = tavily_client.search(query, max_results=5)
         search_results = response.get("results", [])
-        for result in  search_results:
-            downloaded  = trafilatura.fetch_url(result.get("url"))
-            content = trafilatura.extract(downloaded, include_comments=False)
+        for item in search_results:
+            downloaded = trafilatura.fetch_url(item.get("url"))
+            content = trafilatura.extract(downloaded, include_comments=False) if downloaded else None
 
-        result.append({
-            "title": result.get("title", ""),
-            "url": result.get("url"),
-            "content": content,
-        })
+            results.append({
+                "title": item.get("title", ""),
+                "url": item.get("url"),
+                "content": content or "",
+            })
 
-        return result
+        return results
