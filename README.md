@@ -8,6 +8,8 @@ A **AI search & Q&A app** built using **Flutter**, **FastAPI**, and **Google Gem
 
 This project demonstrates how to build an **AI-powered search assistant** that delivers concise, conversational answers with a clean UI and a scalable backend.
 
+![image alt](https://github.com/Art0citus/Arto_Bot/blob/f36df92399b9e4e86ac938c0012dd85fc6f58b3d/Screenshot%202026-06-09%20081207.png)
+
 ---
 
 ## 🧠 Features
